@@ -42,23 +42,10 @@ function App() {
   };
   console.log(aux);
   return (
-    <div class="container">
-		<div class="row">
-			<div class="col">
-        <div>
-          {
-             aux.map((item) => {
-              if( Number(item[0]) === new Date().getDay() ){
-                return(
-                  <h1>
-                    Hoy es {dias[item[0]]} y toca la placa: {item[1][0]} - {item[1][1]}
-                  </h1>
-                );
-              };
-             })
-          }
-        </div>
-				<table class="table table-striped table-bordered table-hover table-dark">
+    <div style={{backgroundColor: "grey" }} className="container-fluid">
+		<div className="row">
+			<div className="col">
+				<table className="table table-striped table-bordered table-hover table-dark">
 					<thead>
 						<tr>
 							<th>Dia</th>
@@ -92,6 +79,25 @@ function App() {
 						</tr>
 					</tbody>
 				</table>
+        <div style={{
+          color: "white",
+          margin: "auto",
+        }}>
+          {
+             aux.map((item) => {
+              if( Number(item[0]) === new Date().getDay() ){
+                return(
+                  <div >
+                    <h1 style={{fontSize: "4rem"}}>
+                      {dias[item[0]]}
+                    </h1>
+                    <p style={{fontSize: "9rem", margin: "auto"}}>{item[1][0]} - {item[1][1]}</p>
+                  </div>
+                );
+              };
+             })
+          }
+        </div>
 			</div>
 		</div>
     </div>
