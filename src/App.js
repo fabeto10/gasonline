@@ -31,17 +31,29 @@ const diasConPlaca = {
 //     return diasConPlaca;
 // };
 const aux = [];
-
-
-const dias = ["Domingo", "Lunes", "Martes", "miercoles", "Jueves", "Viernes", "Sabado"];
-
-function App() {
-  // ruedaPlaca();
-  let aux = [];
+const diaQueToca = 0;
+function getPlacasDeHoy(){
   for(let i in diasConPlaca){
-    aux.push([i, diasConPlaca[i]]);
+    if( Number(i) === new window.Date() ){
+      aux.push(diasConPlaca[i]);
+      console.log(i);
+    };
   };
   console.log(aux);
+  // return String(aux[0]);
+};  
+
+const dias = ["Domingo", "Lunes", "Martes", "miercoles", "Jueves", "Viernes", "Sabado"];
+// getPlacasDeHoy();
+
+function App() {
+  getPlacasDeHoy();
+  // ruedaPlaca();
+  // let aux = [];
+  // for(let i in diasConPlaca){
+  //   aux.push([i, diasConPlaca[i]]);
+  // };
+  // console.log(aux);
   return (
     <div style={{width: '20rem', marginTop:'15rem', textAlign:'center'}} className="container-fluid">
           {/* <table className="table table-striped table-bordered table-hover table-dark">
@@ -82,19 +94,33 @@ function App() {
             color: "white",
             margin: "button",
           }}>
+            <div>
+             <span style={{fontSize: '4rem', color: 'blue'}} className="material-symbols-outlined">
+              location_on
+             </span>
+             <h2 style={{color: 'black'}}>Ciudad Guayana</h2>
+             <h1 style={{color: 'black', fontSize: "4rem", fontFamily: 'Oswald, sans-serif'}}>
+               {dias[0]}
+             </h1>
+             {/* <p style={{color: 'black', fontSize: "9rem", margin: "auto",  fontFamily: 'Oswald, sans-serif'}}>{getPlacasDeHoy()[0]} - {getPlacasDeHoy()[1]}</p> */}
+           </div>
             {
-              aux.map((item) => {
-                if( Number(item[0]) === new Date().getDay() ){
-                  return(
-                    <div >
-                      <h1 style={{color: 'black', fontSize: "4rem", fontFamily: 'Oswald, sans-serif'}}>
-                        {dias[item[0]]}
-                      </h1>
-                      <p style={{color: 'black', fontSize: "9rem", margin: "auto",  fontFamily: 'Oswald, sans-serif'}}>{item[1][0]} - {item[1][1]}</p>
-                    </div>
-                  );
-                };
-              })
+              // aux.map((item) => {
+              //   if( Number(item[0]) === new Date().getDay() ){
+              //     return(
+              //       <div>
+              //         <span style={{fontSize: '4rem', color: 'blue'}} className="material-symbols-outlined">
+              //          location_on
+              //         </span>
+              //         <h2 style={{color: 'black'}}>Ciudad Guayana</h2>
+              //         <h1 style={{color: 'black', fontSize: "4rem", fontFamily: 'Oswald, sans-serif'}}>
+              //           {dias[item[0]]}
+              //         </h1>
+              //         <p style={{color: 'black', fontSize: "9rem", margin: "auto",  fontFamily: 'Oswald, sans-serif'}}>{item[1][0]} - {item[1][1]}</p>
+              //       </div>
+              //     );
+              //   };
+              // })
             }
           </div>
         </div>
