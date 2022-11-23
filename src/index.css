@@ -9,7 +9,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(0, 0, 0);
-  background-image: url('./imagen_estasion_de_servicio.jpg');
+  background-image: url('https://i.pinimg.com/736x/0e/b7/d5/0eb7d588d18d463bed724151eaf532f9.jpg');
+  /* background-image: url('./imagen_estasion_de_servicio.jpg'); */
   background-position: top;
 }
 
