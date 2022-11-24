@@ -1,7 +1,4 @@
-import React, { useState } from 'react';
-const [ value, setValue ] = useState({
-
-})
+import React from 'react';
 const diasConPlaca = {
   0: [3,4],
   1: [3,4],
@@ -16,7 +13,7 @@ const diasConPlaca = {
     
   const aux = [];
     
-  export function getPlacasDeHoy(){
+  function getPlacasDeHoy(){
         const dia = new Date();
         for(let i in diasConPlaca){
         if(dia.getDay() === Number(i)){
@@ -33,7 +30,7 @@ const diasConPlaca = {
     getPlacasDeHoy();
     return (
       <>
-      <div style={{width: '20rem', marginTop:'15rem', textAlign:'center', zIndex: '0'}} className="container-fluid">
+      <div style={{width: '20rem', marginTop:'4rem', textAlign:'center', zIndex: '0'}} className="container-fluid">
             <div style={{
               color: "white",
               margin: "button",
@@ -51,6 +48,9 @@ const diasConPlaca = {
             </div>
             </div>
             </div>
+            <span className="material-symbols-outlined">
+              oil_barrel
+            </span>
           </div>
         </>
     );
