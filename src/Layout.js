@@ -7,13 +7,16 @@ const Layout = () => {
     return (
       <div className="fondo">
         <>
+            <>
             <NavR/>
             <BrowserRouter>
                 <Routes>
-                    <Route path='/' element={<UserComponent/>}/>
-                    <Route path='/admin' element={<AdminComponent/>}/>
+                    <Route path='/' element={<UserComponent />}/>
+                    <Route path='/admin' element={<AdminComponent />}/>
                 </Routes>
             </BrowserRouter>
+
+            </>
         </>
       </div>
     );

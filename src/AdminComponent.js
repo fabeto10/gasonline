@@ -1,32 +1,29 @@
-import React, {useState} from 'react';
+import React, { useState} from 'react';
 import Calendar from 'react-calendar';
 import './components/userComponent.css'
+// let cronograma = {
+//     noviembre:{
+//         '2022': {
+//             '26': '3 - 4',
+//         },
+//     },
+// };
 
-const diasConPlaca = {
-    enero:{},
-    febrero:{},
-    marzo:{},
-    abril:{}, 
-    mayo:{}, 
-    junio:{},
-    julio:{},
-    agosto:{},
-    septiembre:{},
-    octubre:{},
-    noviembre:{},
-    diciembre:{},
-  };
-
-
+const ordenPlacas = ["1 - 2", "3 - 4", "5 - 6", "7 - 8", "9 - 0"];
 export const AdminComponent = () => {
-    const [value, onChange] = useState(new Date());
     let meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-    // console.log( value)
-    // console.log(value.getDate());
-    const [placa, setPlaca] = useState('');
-    
+    const [ placa, setPlaca ] = useState("")
+    const [ value, onChange ] = useState(new Date());
+    function exportPlacas() {
+        let year = value.getFullYear();
+        let yearStr = toString(year);
+        let monthUpper = meses[value.getMonth()];
+        let monthLower = monthUpper.toLowerCase();
+        sessionStorage.setItem(yearStr, monthLower);
+        sessionStorage.getItem(monthLower);
+    };
     return(
-        <>  
+        <div style={{zIndex: '0'}} >  
             {
                 value 
                 ?
@@ -34,13 +31,24 @@ export const AdminComponent = () => {
                     <h1 style={{color: "black", fontSize: "3rem"}}>Cambiar placas: {value.getDate()} de {meses[value.getMonth()]} del {value.getFullYear()}: </h1>
                     <div className='opciones-admin'>
                         <div>
-                            <input type={"text"} value={placa} onChange={(e) => setPlaca(e.target.value)}/>
-                            <button onClick={(e) => setPlaca(placa)}>
+                            <select id="placa" className="form-select form-select-lg mb-3" aria-label=".form-select-lg example" onChange={(e) => setPlaca(e.target.value)}>
+                                <option selected>{"Pares de placas"}</option>
+                                {
+                                    ordenPlacas.map((item, index) => {
+                                        return(
+                                            <option key={index}>{item}</option>
+                                        );
+                                    })
+                                }
+                            </select>
+                            <button onClick={exportPlacas}>
                                 Agregar placa
                             </button>
                         </div>
                         <div>
-                            <p style={{color: 'black', fontSize: "9rem", margin: "auto",  fontFamily: 'Oswald, sans-serif'}}>{placa} - {placa}</p>
+                            <h4>Registro de datos datos: </h4>
+                            <p></p>
+                            <p style={{color: 'black', fontSize: "9rem", margin: "auto",  fontFamily: 'Oswald, sans-serif'}}>{placa}</p>
                         </div>
                     </div>
                 </div>
@@ -50,7 +58,9 @@ export const AdminComponent = () => {
             }
             <div>
                 <Calendar onChange={onChange} value={value} />
+                {/* {
+                } */}
             </div>
-        </>
+        </div>
     );
 };

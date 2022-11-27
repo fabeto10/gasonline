@@ -29,29 +29,27 @@ const diasConPlaca = {
   export function UserComponent() {
     getPlacasDeHoy();
     return (
-      <>
-      <div style={{width: '20rem', marginTop:'4rem', textAlign:'center', zIndex: '0'}} className="container-fluid">
+      <div style={{width: '20rem', marginTop:'2rem', textAlign:'center', zIndex: '0'}} className="container-fluid">
             <div style={{
               color: "white",
               margin: "button",
             }}>
               <div>
-              <span style={{fontSize: '4rem', color: 'blue'}} className="material-symbols-outlined">
+              <span style={{fontSize: '6rem', color: 'red'}} className="material-symbols-outlined">
                 location_on
               </span>
               <h2 style={{color: 'black'}}>Ciudad Guayana</h2>
               <h1 style={{color: 'black', fontSize: "4rem", fontFamily: 'Oswald, sans-serif'}}>
                 {dias[diaQueToca]}
               </h1>
-              <div>
-              <p style={{color: 'black', fontSize: "9rem", margin: "auto",  fontFamily: 'Oswald, sans-serif'}}>{aux[0][0]} - {aux[0][1]}</p>
-            </div>
+            <div>
+            <p style={{color: 'black', fontSize: "9rem", margin: "auto",  fontFamily: 'Oswald, sans-serif'}}>{aux[0][0]} - {aux[0][1]}</p>
+          </div>
             </div>
             </div>
             <span className="material-symbols-outlined">
               oil_barrel
             </span>
           </div>
-        </>
     );
   };
